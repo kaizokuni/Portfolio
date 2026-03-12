@@ -1,5 +1,3 @@
-import { useState, useEffect } from 'react'
-import BootScreen from './components/BootScreen'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -12,21 +10,9 @@ import Footer from './components/Footer'
 import MatrixRain from './components/MatrixRain'
 
 function App() {
-  const [booting, setBooting] = useState(true)
-
-  useEffect(() => {
-    const timer = setTimeout(() => setBooting(false), 3200)
-    return () => clearTimeout(timer)
-  }, [])
-
-  if (booting) {
-    return <BootScreen />
-  }
-
   return (
     <div className="app-container">
       <MatrixRain />
-      <div className="scanline" />
       <Navbar />
       <main>
         <Hero />

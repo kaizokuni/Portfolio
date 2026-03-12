@@ -48,6 +48,12 @@ body {
 ::-webkit-scrollbar-track { background: var(--bg-dark); }
 ::-webkit-scrollbar-thumb { background: var(--green-dim); border-radius: 4px; }
 
+/* ===== APP CONTAINER ===== */
+.app-container {
+  position: relative;
+  z-index: 1;
+}
+
 /* ===== MATRIX BG ===== */
 .matrix-bg {
   position: fixed;

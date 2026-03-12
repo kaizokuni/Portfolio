@@ -12,28 +12,33 @@ import Footer from './components/Footer'
 import MatrixRain from './components/MatrixRain'
 
 function App() {
-  const [booted, setBooted] = useState(false)
+  const [booting, setBooting] = useState(true)
 
   useEffect(() => {
-    const timer = setTimeout(() => setBooted(true), 3200)
+    const timer = setTimeout(() => setBooting(false), 3200)
     return () => clearTimeout(timer)
   }, [])
 
+  if (booting) {
+    return <BootScreen />
+  }
+
   return (
-    <>
+    <div className="app-container">
       <MatrixRain />
       <div className="scanline" />
-      {!booted && <BootScreen />}
       <Navbar />
-      <Hero />
-      <About />
-      <Skills />
-      <Experience />
-      <Projects />
-      <Certifications />
-      <Contact />
+      <main>
+        <Hero />
+        <About />
+        <Skills />
+        <Experience />
+        <Projects />
+        <Certifications />
+        <Contact />
+      </main>
       <Footer />
-    </>
+    </div>
   )
 }
 

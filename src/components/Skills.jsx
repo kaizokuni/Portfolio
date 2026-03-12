@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { skills } from '../data'
+import useScrollReveal from '../hooks/useScrollReveal'
 
 function SkillBar({ name, level }) {
   const barRef = useRef(null)
@@ -19,7 +20,10 @@ function SkillBar({ name, level }) {
 
   return (
     <div className="skill-item">
-      <span className="skill-name">{name}</span>
+      <div className="skill-info">
+        <span className="skill-name">{name}</span>
+        <span className="skill-percent">{level}%</span>
+      </div>
       <div className="skill-bar">
         <div className="skill-fill" ref={barRef} style={{ width: 0 }} />
       </div>
@@ -28,13 +32,17 @@ function SkillBar({ name, level }) {
 }
 
 export default function Skills() {
+  const [ref, isVisible] = useScrollReveal()
+
   return (
     <section id="skills" className="section">
-      <div className="container">
-        <h2 className="section-title"><span className="hash">#</span> Skills_&amp;_Arsenal</h2>
+      <div className="container" ref={ref}>
+        <h2 className={`section-title ${isVisible ? 'fade-up' : 'fade-hidden'}`}>
+          <span className="hash">#</span> Skills_&amp;_Arsenal
+        </h2>
         <div className="skills-grid">
           {skills.map((cat, i) => (
-            <div className="skill-category" key={i}>
+            <div className={`skill-category ${isVisible ? 'fade-up delay-' + (i + 1) : 'fade-hidden'}`} key={i}>
               <h3 className="skill-cat-title">
                 <span className="bracket">[</span> {cat.category} <span className="bracket">]</span>
               </h3>

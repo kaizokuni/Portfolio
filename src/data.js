@@ -24,7 +24,7 @@ export const stats = [
   { icon: "[~]", number: 6, label: "Certifications" },
   { icon: "{*}", number: 7, label: "Projects" },
   { icon: "</>", number: 5, label: "Years of Study" },
-  { icon: "[!]", number: 2, label: "Internships" },
+  { icon: "[!]", number: 3, label: "Internships" },
 ];
 
 export const skills = [
@@ -64,6 +64,18 @@ export const skills = [
 ];
 
 export const experiences = [
+  {
+    title: "Cybersecurity Intern (PFE)",
+    company: "Current Company",
+    location: "Morocco",
+    date: "Feb 2026 - Present",
+    details: [
+      "End-of-studies internship in cybersecurity",
+      "Details coming soon — currently in progress",
+    ],
+    tags: ["Cybersecurity", "PFE"],
+    current: true,
+  },
   {
     title: "Network & Security Intern",
     company: "Ministère du Transport et de la Logistique",

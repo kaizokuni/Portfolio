@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { personalInfo, stats } from '../data'
+import useScrollReveal from '../hooks/useScrollReveal'
 
 function Counter({ target }) {
   const [count, setCount] = useState(0)
@@ -32,12 +33,16 @@ function Counter({ target }) {
 }
 
 export default function About() {
+  const [ref, isVisible] = useScrollReveal()
+
   return (
     <section id="about" className="section">
-      <div className="container">
-        <h2 className="section-title"><span className="hash">#</span> About_Me</h2>
-        <div className="about-grid">
-          <div className="terminal-window">
+      <div className="container" ref={ref}>
+        <h2 className={`section-title ${isVisible ? 'fade-up' : 'fade-hidden'}`}>
+          <span className="hash">#</span> About_Me
+        </h2>
+        <div className={`about-grid ${isVisible ? 'fade-up delay-1' : 'fade-hidden'}`}>
+          <div className="terminal-window glow-border">
             <div className="terminal-header">
               <span className="dot red" />
               <span className="dot yellow" />

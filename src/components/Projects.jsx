@@ -1,13 +1,18 @@
 import { projects } from '../data'
+import useScrollReveal from '../hooks/useScrollReveal'
 
 export default function Projects() {
+  const [ref, isVisible] = useScrollReveal()
+
   return (
     <section id="projects" className="section">
-      <div className="container">
-        <h2 className="section-title"><span className="hash">#</span> Projects_&amp;_Exploits</h2>
+      <div className="container" ref={ref}>
+        <h2 className={`section-title ${isVisible ? 'fade-up' : 'fade-hidden'}`}>
+          <span className="hash">#</span> Projects_&amp;_Exploits
+        </h2>
         <div className="projects-grid">
           {projects.map((project, i) => (
-            <div className="project-card" key={i}>
+            <div className={`project-card ${isVisible ? 'fade-up delay-' + ((i % 3) + 1) : 'fade-hidden'}`} key={i}>
               <div className="project-header">
                 <span className="project-icon">{project.icon}</span>
                 <span className="project-year">{project.year}</span>

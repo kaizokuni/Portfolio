@@ -1,13 +1,18 @@
 import { experiences } from '../data'
+import useScrollReveal from '../hooks/useScrollReveal'
 
 export default function Experience() {
+  const [ref, isVisible] = useScrollReveal()
+
   return (
     <section id="experience" className="section">
-      <div className="container">
-        <h2 className="section-title"><span className="hash">#</span> Experience_Log</h2>
+      <div className="container" ref={ref}>
+        <h2 className={`section-title ${isVisible ? 'fade-up' : 'fade-hidden'}`}>
+          <span className="hash">#</span> Experience_Log
+        </h2>
         <div className="timeline">
           {experiences.map((exp, i) => (
-            <div className="timeline-item" key={i}>
+            <div className={`timeline-item ${isVisible ? 'fade-up delay-' + (i + 1) : 'fade-hidden'}`} key={i}>
               <div className="timeline-marker" />
               <div className="timeline-content">
                 <div className="timeline-header">
@@ -29,6 +34,7 @@ export default function Experience() {
                     ))}
                   </div>
                 )}
+                {exp.current && <div className="current-badge">Currently Active</div>}
               </div>
             </div>
           ))}

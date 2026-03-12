@@ -1,44 +1,53 @@
 import { useState, useEffect } from 'react'
-import { bootLines } from '../data'
 
-function ColoredLine({ text }) {
-  if (text.includes('UP')) {
-    return <>{text.replace('UP', '')}<span className="green">UP</span></>
-  }
-  if (text.includes('ACTIVE')) {
-    return <>{text.replace('ACTIVE', '')}<span className="green">ACTIVE</span></>
-  }
-  if (text.includes('[OK]')) {
-    return <>[<span className="green">OK</span>]{text.replace('[OK]', '').slice(0)}</>
-  }
-  if (text.includes('yassine@ouhannou')) {
-    const parts = text.split('yassine@ouhannou')
-    return <>{parts[0]}<span className="cyan">yassine@ouhannou</span>{parts[1]}</>
-  }
-  return text
-}
+const BOOT_LINES = [
+  { text: '[*] Initializing system...', type: 'normal' },
+  { text: '[*] Loading kernel modules...', type: 'normal' },
+  { text: '[+] Network interface: ', highlight: 'UP', type: 'success' },
+  { text: '[+] Firewall status: ', highlight: 'ACTIVE', type: 'success' },
+  { text: '[*] Establishing secure connection...', type: 'normal' },
+  { text: '[+] Connection established via TLS 1.3', type: 'normal' },
+  { text: '[+] Identity verified: ', highlight: 'yassine@ouhannou', type: 'identity' },
+  { text: '[*] Loading portfolio...', type: 'normal' },
+  { text: '[', highlight: 'OK', suffix: '] System ready.', type: 'ok' },
+]
 
-export default function BootScreen() {
+export default function BootScreen({ onComplete }) {
   const [visibleLines, setVisibleLines] = useState(0)
-  const [hiding, setHiding] = useState(false)
+  const [fading, setFading] = useState(false)
 
   useEffect(() => {
-    const timers = bootLines.map((_, i) =>
-      setTimeout(() => setVisibleLines(i + 1), i * 300)
+    const timers = BOOT_LINES.map((_, i) =>
+      setTimeout(() => setVisibleLines(i + 1), i * 280)
     )
-    const hideTimer = setTimeout(() => setHiding(true), 3000)
+    const fadeTimer = setTimeout(() => setFading(true), BOOT_LINES.length * 280 + 400)
+    const doneTimer = setTimeout(onComplete, BOOT_LINES.length * 280 + 1200)
     return () => {
       timers.forEach(clearTimeout)
-      clearTimeout(hideTimer)
+      clearTimeout(fadeTimer)
+      clearTimeout(doneTimer)
     }
-  }, [])
+  }, [onComplete])
+
+  const renderLine = (line, i) => {
+    if (line.type === 'success') {
+      return <>{line.text}<span className="green">{line.highlight}</span></>
+    }
+    if (line.type === 'identity') {
+      return <>{line.text}<span className="cyan">{line.highlight}</span></>
+    }
+    if (line.type === 'ok') {
+      return <>{line.text}<span className="green">{line.highlight}</span>{line.suffix}</>
+    }
+    return line.text
+  }
 
   return (
-    <div className={`boot-screen ${hiding ? 'hidden' : ''}`}>
+    <div className={`boot-screen ${fading ? 'hidden' : ''}`}>
       <div className="boot-text">
-        {bootLines.map((line, i) => (
+        {BOOT_LINES.map((line, i) => (
           <p key={i} className={`boot-line ${i < visibleLines ? 'visible' : ''}`}>
-            <ColoredLine text={line} />
+            {renderLine(line, i)}
           </p>
         ))}
       </div>

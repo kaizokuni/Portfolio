@@ -1,5 +1,6 @@
 {
-  "name": "temp-vite",
+  "name": "portfolio",
+  "homepage": "https://kaizokuni.github.io/Portfolio/",
   "private": true,
   "version": "0.0.0",
   "type": "module",

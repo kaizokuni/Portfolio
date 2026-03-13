@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Alex Chen — Full-Stack Developer, UI/UX Designer & Creative Coder. Crafting premium digital experiences." />
+  <title>Alex Chen — Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════
+       PRELOADER
+  ═══════════════════════════════════════ -->
+  <div id="preloader" aria-hidden="true">
+    <div class="preloader-inner">
+      <div class="preloader-counter">
+        <span id="preloader-count">00</span>
+        <span class="preloader-percent">%</span>
+      </div>
+      <p class="preloader-label">Initializing experience</p>
+    </div>
+    <div class="preloader-bar">
+      <div class="preloader-bar-fill" id="preloader-bar-fill"></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       SCROLL PROGRESS BAR
+  ═══════════════════════════════════════ -->
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════════════════
+       CUSTOM CURSOR
+  ═══════════════════════════════════════ -->
+  <div id="cursor-outer" aria-hidden="true"></div>
+  <div id="cursor-inner" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════════════════
+       SPOTLIGHT
+  ═══════════════════════════════════════ -->
+  <div id="spotlight" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════════ -->
+  <nav class="nav" id="main-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo" aria-label="Alex Chen — Home">
+        <span class="logo-bracket">&lt;</span>
+        <span class="logo-text">AC</span>
+        <span class="logo-bracket">/&gt;</span>
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <a href="#contact" class="btn-nav magnetic" aria-label="Hire Me">Hire Me</a>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle mobile menu" aria-expanded="false">
+        <span class="ham-line"></span>
+        <span class="ham-line"></span>
+        <span class="ham-line"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════
+       MOBILE MENU
+  ═══════════════════════════════════════ -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-inner">
+      <ul class="mobile-nav-links" role="list">
+        <li><a href="#about" class="mobile-nav-link">About</a></li>
+        <li><a href="#skills" class="mobile-nav-link">Skills</a></li>
+        <li><a href="#projects" class="mobile-nav-link">Projects</a></li>
+        <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+      </ul>
+      <div class="mobile-menu-footer">
+        <p>alexchen@email.com</p>
+        <div class="mobile-social">
+          <a href="#" aria-label="GitHub">GH</a>
+          <a href="#" aria-label="Twitter">TW</a>
+          <a href="#" aria-label="LinkedIn">LI</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       HERO SECTION
+  ═══════════════════════════════════════ -->
+  <section id="hero" aria-label="Hero">
+    <canvas id="hero-canvas" aria-hidden="true"></canvas>
+
+    <!-- Floating background shapes -->
+    <div class="floating-shapes" aria-hidden="true">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+    </div>
+
+    <div class="hero-content">
+      <p class="eyebrow reveal-fade">
+        <span class="eyebrow-dot"></span>
+        Available for work
+      </p>
+
+      <h1 class="hero-title split-heading">
+        Alex Chen
+      </h1>
+
+      <div class="hero-subtitle-wrap">
+        <span class="hero-subtitle-prefix">I'm a&nbsp;</span>
+        <span
+          class="typewriter"
+          id="typewriter"
+          data-texts='["Full-Stack Developer", "UI/UX Designer", "Creative Coder"]'
+          aria-live="polite"
+        ></span>
+        <span class="typewriter-cursor" aria-hidden="true">|</span>
+      </div>
+
+      <p class="hero-description reveal-up">
+        I craft immersive digital experiences at the intersection of<br />
+        engineering precision and creative vision.
+      </p>
+
+      <div class="hero-cta reveal-up">
+        <a href="#projects" class="btn-primary magnetic ripple-btn">
+          <span>View My Work</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="#contact" class="btn-outline ripple-btn">
+          <span>Get In Touch</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator" aria-label="Scroll down">
+      <div class="scroll-indicator-line"></div>
+      <span class="scroll-indicator-label">Scroll</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       ABOUT SECTION
+  ═══════════════════════════════════════ -->
+  <section id="about" aria-label="About me">
+    <div class="container">
+      <div class="about-grid">
+
+        <!-- Image column -->
+        <div class="about-image-col">
+          <div class="about-image-wrap reveal-left">
+            <div class="about-image-frame">
+              <div class="about-image-inner">
+                <div class="about-image-placeholder">
+                  <svg width="80" height="80" viewBox="0 0 80 80" fill="none" aria-hidden="true">
+                    <circle cx="40" cy="30" r="16" fill="var(--accent-1)" opacity="0.6"/>
+                    <ellipse cx="40" cy="65" rx="26" ry="18" fill="var(--accent-1)" opacity="0.4"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="about-image-badge">
+                <span class="badge-number">5+</span>
+                <span class="badge-text">Years of<br/>Experience</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Text column -->
+        <div class="about-text-col">
+          <p class="section-label reveal-up">Who I am</p>
+          <h2 class="section-title split-heading reveal-up">
+            Crafting digital <br/><em>magic</em> with code
+          </h2>
+
+          <div class="about-bio reveal-up">
+            <p>
+              Hey! I'm Alex — a full-stack developer and UI/UX designer based in San Francisco. I specialize in building beautiful, performant web applications that don't just function flawlessly but feel genuinely delightful to use. My work lives at the intersection of clean engineering and thoughtful design.
+            </p>
+            <p>
+              With 5+ years in the industry, I've shipped products for startups and Fortune 500 companies alike. When I'm not writing code, you'll find me tinkering with generative art, contributing to open-source, or brewing suspiciously complex pour-over coffee.
+            </p>
+          </div>
+
+          <!-- Stats -->
+          <div class="about-stats reveal-up">
+            <div class="stat-item">
+              <span class="stat-number" data-count="50">0</span>
+              <span class="stat-suffix">+</span>
+              <span class="stat-label">Projects Shipped</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-count="30">0</span>
+              <span class="stat-suffix">+</span>
+              <span class="stat-label">Happy Clients</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-count="5">0</span>
+              <span class="stat-suffix">+</span>
+              <span class="stat-label">Years Active</span>
+            </div>
+          </div>
+
+          <a href="#contact" class="btn-primary magnetic ripple-btn reveal-up" style="display:inline-flex; margin-top: 2rem;">
+            <span>Let's Work Together</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       SKILLS SECTION
+  ═══════════════════════════════════════ -->
+  <section id="skills" aria-label="Skills">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <p class="section-label">What I use</p>
+        <h2 class="section-title split-heading">Tools &amp; Technologies</h2>
+        <p class="section-subtitle">A curated toolkit I rely on to build world-class products.</p>
+      </div>
+
+      <div class="skills-grid">
+
+        <div class="skill-card">
+          <div class="skill-icon">
+            <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+              <rect x="4" y="4" width="40" height="40" rx="4" fill="var(--accent-1)" opacity="0.15"/>
+              <path d="M12 12h24v4H12zm0 8h24v4H12zm0 8h16v4H12z" fill="var(--accent-1)"/>
+            </svg>
+          </div>
+          <h3 class="skill-title">HTML &amp; CSS</h3>
+          <p class="skill-desc">Semantic markup, modern CSS, animations, and responsive design with pixel-perfect precision.</p>
+          <div class="skill-tags">
+            <span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">Sass</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">
+            <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+              <rect x="4" y="4" width="40" height="40" rx="4" fill="var(--accent-2)" opacity="0.15"/>
+              <path d="M24 10l12 7v14l-12 7-12-7V17l12-7z" stroke="var(--accent-2)" stroke-width="2.5"/>
+              <circle cx="24" cy="24" r="4" fill="var(--accent-2)"/>
+            </svg>
+          </div>
+          <h3 class="skill-title">JavaScript</h3>
+          <p class="skill-desc">ES6+, async patterns, performance optimization, and building complex interactive UIs.</p>
+          <div class="skill-tags">
+            <span class="tag">ES6+</span><span class="tag">TypeScript</span><span class="tag">Node.js</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">
+            <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+              <rect x="4" y="4" width="40" height="40" rx="4" fill="var(--accent-1)" opacity="0.15"/>
+              <circle cx="24" cy="24" r="10" stroke="var(--accent-1)" stroke-width="2.5"/>
+              <path d="M24 14v-4M24 38v-4M34 24h4M10 24h4" stroke="var(--accent-1)" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="skill-title">React</h3>
+          <p class="skill-desc">Component architecture, hooks, context, state management (Redux/Zustand), and Next.js.</p>
+          <div class="skill-tags">
+            <span class="tag">React</span><span class="tag">Next.js</span><span class="tag">Redux</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">
+            <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+              <rect x="4" y="4" width="40" height="40" rx="4" fill="var(--accent-2)" opacity="0.15"/>
+              <path d="M16 16h16v16H16z" stroke="var(--accent-2)" stroke-width="2.5"/>
+              <path d="M20 12v4M28 12v4M12 20h4M12 28h4M32 20h4M32 28h4M20 32v4M28 32v4" stroke="var(--accent-2)" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="skill-title">Node.js</h3>
+          <p class="skill-desc">RESTful APIs, GraphQL, microservices, real-time systems with WebSockets, and serverless.</p>
+          <div class="skill-tags">
+            <span class="tag">Express</span><span class="tag">GraphQL</span><span class="tag">Prisma</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">
+            <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+              <rect x="4" y="4" width="40" height="40" rx="4" fill="var(--accent-3)" opacity="0.15"/>
+              <path d="M24 8L40 18v12L24 40 8 30V18L24 8z" stroke="var(--accent-3)" stroke-width="2.5"/>
+              <path d="M16 22l4 4 8-8" stroke="var(--accent-3)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="skill-title">Python</h3>
+          <p class="skill-desc">Data processing, ML pipelines with scikit-learn, FastAPI backends, and automation scripts.</p>
+          <div class="skill-tags">
+            <span class="tag">FastAPI</span><span class="tag">Pandas</span><span class="tag">ML</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">
+            <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+              <rect x="4" y="4" width="40" height="40" rx="4" fill="var(--accent-1)" opacity="0.15"/>
+              <rect x="10" y="14" width="12" height="20" rx="2" stroke="var(--accent-1)" stroke-width="2.5"/>
+              <rect x="26" y="14" width="12" height="9" rx="2" fill="var(--accent-1)" opacity="0.5"/>
+              <rect x="26" y="26" width="12" height="8" rx="2" stroke="var(--accent-1)" stroke-width="2.5"/>
+            </svg>
+          </div>
+          <h3 class="skill-title">UI/UX Design</h3>
+          <p class="skill-desc">User research, wireframing, prototyping, design systems, and accessibility-first interfaces.</p>
+          <div class="skill-tags">
+            <span class="tag">Figma</span><span class="tag">Framer</span><span class="tag">A11y</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">
+            <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+              <rect x="4" y="4" width="40" height="40" rx="4" fill="var(--accent-2)" opacity="0.15"/>
+              <path d="M10 24C10 16.3 16.3 10 24 10s14 6.3 14 14-6.3 14-14 14" stroke="var(--accent-2)" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M24 18v6l4 4" stroke="var(--accent-2)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="skill-title">GSAP &amp; Animation</h3>
+          <p class="skill-desc">Complex timeline animations, scroll-driven effects, physics-based motion, and micro-interactions.</p>
+          <div class="skill-tags">
+            <span class="tag">GSAP</span><span class="tag">CSS</span><span class="tag">Canvas</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">
+            <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+              <rect x="4" y="4" width="40" height="40" rx="4" fill="var(--accent-3)" opacity="0.15"/>
+              <path d="M14 20h20M14 28h14" stroke="var(--accent-3)" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="34" cy="28" r="4" stroke="var(--accent-3)" stroke-width="2.5"/>
+            </svg>
+          </div>
+          <h3 class="skill-title">Figma</h3>
+          <p class="skill-desc">Component libraries, auto-layout mastery, interactive prototyping, and developer handoff.</p>
+          <div class="skill-tags">
+            <span class="tag">Components</span><span class="tag">Tokens</span><span class="tag">Plugins</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       PROJECTS SECTION
+  ═══════════════════════════════════════ -->
+  <section id="projects" aria-label="Projects">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <p class="section-label">Selected work</p>
+        <h2 class="section-title split-heading">Things I've Built</h2>
+        <p class="section-subtitle">A collection of projects spanning product design, full-stack development, and creative experiments.</p>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- Project 1 -->
+        <article class="project-card cursor-text-trigger" aria-label="Nebula Dashboard project">
+          <div class="project-image">
+            <div class="project-image-bg project-bg-1" aria-hidden="true">
+              <div class="project-image-decoration">
+                <div class="dec-circle dec-1"></div>
+                <div class="dec-circle dec-2"></div>
+                <div class="dec-grid"></div>
+              </div>
+              <div class="project-screen-mock">
+                <div class="mock-bar"></div>
+                <div class="mock-content">
+                  <div class="mock-sidebar"></div>
+                  <div class="mock-main">
+                    <div class="mock-chart"></div>
+                    <div class="mock-cards-row">
+                      <div class="mock-card-sm"></div>
+                      <div class="mock-card-sm"></div>
+                      <div class="mock-card-sm"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-overlay">
+              <a href="#" class="project-link magnetic" aria-label="View live demo">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <path d="M10 3H5a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                  <path d="M15 3h2v2M17 3l-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Live Demo
+              </a>
+              <a href="#" class="project-link magnetic" aria-label="View source code">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <path d="M7 4l-4 6 4 6M13 4l4 6-4 6M11 3l-2 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Source
+              </a>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-meta">
+              <span class="project-number">01</span>
+              <div class="project-tags">
+                <span class="tag">React</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">D3.js</span>
+                <span class="tag">PostgreSQL</span>
+              </div>
+            </div>
+            <h3 class="project-title">Nebula Dashboard</h3>
+            <p class="project-desc">
+              A real-time analytics platform featuring dynamic data visualizations, customizable widget layouts, and AI-powered insights. Handles 10M+ data points with smooth 60fps charts.
+            </p>
+            <div class="project-footer">
+              <a href="#" class="project-read-more">
+                View Case Study
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card cursor-text-trigger" aria-label="EchoAI Chat project">
+          <div class="project-image">
+            <div class="project-image-bg project-bg-2" aria-hidden="true">
+              <div class="project-image-decoration">
+                <div class="dec-circle dec-1"></div>
+                <div class="dec-circle dec-2"></div>
+              </div>
+              <div class="project-chat-mock">
+                <div class="chat-bubble chat-in">How can I optimize my workflow?</div>
+                <div class="chat-bubble chat-out">I can help with that! Let's start by analyzing your current process...</div>
+                <div class="chat-bubble chat-in">Tell me more about automation</div>
+                <div class="chat-typing">
+                  <span></span><span></span><span></span>
+                </div>
+              </div>
+            </div>
+            <div class="project-overlay">
+              <a href="#" class="project-link magnetic" aria-label="View live demo">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <path d="M10 3H5a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                  <path d="M15 3h2v2M17 3l-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Live Demo
+              </a>
+              <a href="#" class="project-link magnetic" aria-label="View source code">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <path d="M7 4l-4 6 4 6M13 4l4 6-4 6M11 3l-2 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Source
+              </a>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-meta">
+              <span class="project-number">02</span>
+              <div class="project-tags">
+                <span class="tag">Next.js</span>
+                <span class="tag">OpenAI</span>
+                <span class="tag">WebSockets</span>
+                <span class="tag">Redis</span>
+              </div>
+            </div>
+            <h3 class="project-title">EchoAI Chat</h3>
+            <p class="project-desc">
+              An intelligent conversational platform powered by GPT-4 with context-aware memory, multi-modal input support, and real-time streaming responses. Features custom fine-tuned personas.
+            </p>
+            <div class="project-footer">
+              <a href="#" class="project-read-more">
+                View Case Study
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project-card cursor-text-trigger" aria-label="PixelForge Studio project">
+          <div class="project-image">
+            <div class="project-image-bg project-bg-3" aria-hidden="true">
+              <div class="project-image-decoration">
+                <div class="dec-circle dec-1"></div>
+                <div class="dec-circle dec-2"></div>
+              </div>
+              <div class="project-forge-mock">
+                <div class="forge-toolbar">
+                  <div class="forge-tool active"></div>
+                  <div class="forge-tool"></div>
+                  <div class="forge-tool"></div>
+                  <div class="forge-tool"></div>
+                </div>
+                <div class="forge-canvas">
+                  <div class="forge-shape forge-rect"></div>
+                  <div class="forge-shape forge-circle"></div>
+                  <div class="forge-shape forge-tri"></div>
+                </div>
+                <div class="forge-layers">
+                  <div class="forge-layer active">Layer 3</div>
+                  <div class="forge-layer">Layer 2</div>
+                  <div class="forge-layer">Layer 1</div>
+                </div>
+              </div>
+            </div>
+            <div class="project-overlay">
+              <a href="#" class="project-link magnetic" aria-label="View live demo">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <path d="M10 3H5a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                  <path d="M15 3h2v2M17 3l-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Live Demo
+              </a>
+              <a href="#" class="project-link magnetic" aria-label="View source code">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <path d="M7 4l-4 6 4 6M13 4l4 6-4 6M11 3l-2 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Source
+              </a>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-meta">
+              <span class="project-number">03</span>
+              <div class="project-tags">
+                <span class="tag">Canvas API</span>
+                <span class="tag">WebGL</span>
+                <span class="tag">Python</span>
+                <span class="tag">FastAPI</span>
+              </div>
+            </div>
+            <h3 class="project-title">PixelForge Studio</h3>
+            <p class="project-desc">
+              A browser-based creative suite for generative art and pixel manipulation. Features layer-based editing, AI-assisted style transfer, procedural texture generation, and SVG export.
+            </p>
+            <div class="project-footer">
+              <a href="#" class="project-read-more">
+                View Case Study
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       CONTACT SECTION
+  ═══════════════════════════════════════ -->
+  <section id="contact" aria-label="Contact">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <p class="section-label">Get in touch</p>
+        <h2 class="section-title split-heading">Let's Build Something <em>Remarkable</em></h2>
+        <p class="section-subtitle">Have a project in mind or just want to say hi? My inbox is always open.</p>
+      </div>
+
+      <div class="contact-grid">
+
+        <!-- Form -->
+        <div class="contact-form-wrap reveal-left">
+          <form class="contact-form" id="contact-form" novalidate aria-label="Contact form">
+            <div class="form-group">
+              <label for="name" class="form-label">Your Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                class="form-input"
+                placeholder="John Doe"
+                autocomplete="name"
+                required
+              />
+              <span class="form-error" role="alert"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="email" class="form-label">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="form-input"
+                placeholder="john@example.com"
+                autocomplete="email"
+                required
+              />
+              <span class="form-error" role="alert"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="subject" class="form-label">Subject</label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                class="form-input"
+                placeholder="Project Collaboration"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="message" class="form-label">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                class="form-input form-textarea"
+                placeholder="Tell me about your project..."
+                rows="5"
+                required
+              ></textarea>
+              <span class="form-error" role="alert"></span>
+            </div>
+
+            <button type="submit" class="btn-primary magnetic ripple-btn contact-submit" aria-label="Send message">
+              <span class="btn-text">Send Message</span>
+              <span class="btn-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                  <path d="M2 9h14M11 4l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <span class="btn-success" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                  <path d="M4 9l4 4 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Sent!
+              </span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="contact-info-wrap reveal-right">
+          <div class="contact-info-card">
+            <div class="contact-info-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="var(--accent-1)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="contact-info-text">
+              <span class="contact-info-label">Email</span>
+              <a href="mailto:alexchen@email.com" class="contact-info-value">alexchen@email.com</a>
+            </div>
+          </div>
+
+          <div class="contact-info-card">
+            <div class="contact-info-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z" stroke="var(--accent-2)" stroke-width="1.8"/>
+                <circle cx="12" cy="11" r="3" stroke="var(--accent-2)" stroke-width="1.8"/>
+              </svg>
+            </div>
+            <div class="contact-info-text">
+              <span class="contact-info-label">Location</span>
+              <span class="contact-info-value">San Francisco, CA</span>
+            </div>
+          </div>
+
+          <div class="contact-info-card">
+            <div class="contact-info-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="10" stroke="var(--accent-3)" stroke-width="1.8"/>
+                <path d="M12 6v6l4 2" stroke="var(--accent-3)" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="contact-info-text">
+              <span class="contact-info-label">Availability</span>
+              <span class="contact-info-value availability-open">Open to opportunities</span>
+            </div>
+          </div>
+
+          <!-- Social links -->
+          <div class="contact-social">
+            <p class="contact-social-label">Find me online</p>
+            <div class="contact-social-links">
+              <a href="#" class="social-link magnetic" aria-label="GitHub profile">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+              <a href="#" class="social-link magnetic" aria-label="Twitter profile">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+              <a href="#" class="social-link magnetic" aria-label="LinkedIn profile">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="1.8"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <a href="#hero" class="footer-logo" aria-label="Back to top">
+            <span class="logo-bracket">&lt;</span>
+            <span class="logo-text">AC</span>
+            <span class="logo-bracket">/&gt;</span>
+          </a>
+          <p class="footer-copy">&copy; 2025 Alex Chen. Crafted with ♥ and way too much coffee.</p>
+        </div>
+        <div class="footer-right">
+          <a href="#" class="footer-social magnetic" aria-label="GitHub">GH</a>
+          <a href="#" class="footer-social magnetic" aria-label="Twitter">TW</a>
+          <a href="#" class="footer-social magnetic" aria-label="LinkedIn">LI</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════
+       SCRIPTS
+  ═══════════════════════════════════════ -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="script.js" defer></script>
+</body>
+</html>

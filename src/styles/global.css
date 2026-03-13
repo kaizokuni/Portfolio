@@ -815,6 +815,18 @@ body {
 
 .status-dot.active { animation: pulse-dot 2s infinite; }
 
+.status-dot.in-progress {
+  background: var(--cyan);
+  animation: pulse-progress 1.5s infinite;
+}
+
+.status-current { color: var(--cyan); font-weight: 600; }
+
+@keyframes pulse-progress {
+  0%, 100% { box-shadow: 0 0 0 0 var(--cyan-glow); }
+  50% { box-shadow: 0 0 0 6px transparent; }
+}
+
 @keyframes pulse-dot {
   0%, 100% { box-shadow: 0 0 0 0 var(--green-glow); }
   50% { box-shadow: 0 0 0 6px transparent; }

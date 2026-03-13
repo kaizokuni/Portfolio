@@ -24,8 +24,9 @@ export default function Projects() {
                   <span className="tag" key={j}>{tag}</span>
                 ))}
               </div>
-              <div className="project-status">
-                <span className="status-dot active" /> Completed
+              <div className={`project-status ${project.current ? 'status-current' : ''}`}>
+                <span className={`status-dot ${project.current ? 'in-progress' : 'active'}`} />
+                {project.current ? 'In Progress' : 'Completed'}
               </div>
             </div>
           ))}

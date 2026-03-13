@@ -22,7 +22,7 @@ export const roles = [
 
 export const stats = [
   { icon: "[~]", number: 6, label: "Certifications" },
-  { icon: "{*}", number: 7, label: "Projects" },
+  { icon: "{*}", number: 8, label: "Projects" },
   { icon: "</>", number: 5, label: "Years of Study" },
   { icon: "[!]", number: 3, label: "Internships" },
 ];
@@ -65,15 +65,18 @@ export const skills = [
 
 export const experiences = [
   {
-    title: "Cybersecurity Intern (PFE)",
-    company: "Current Company",
-    location: "Morocco",
+    title: "Cybersecurity Intern — PFE (End-of-Studies Project)",
+    company: "EMSI Rabat",
+    location: "Rabat, Morocco",
     date: "Feb 2026 - Present",
     details: [
-      "End-of-studies internship in cybersecurity",
-      "Details coming soon — currently in progress",
+      "Designing & deploying a Cloud-Native Security Operations Center (SOC) on K3s Kubernetes",
+      "Deployed full Wazuh Stack (Indexer, Manager, Dashboard) via Helm for SIEM capabilities",
+      "Implemented Zero-Trust network access using Tailscale Mesh VPN across the infrastructure",
+      "Integrating Sigstore/Cosign for container image provenance & admission control",
+      "Building runtime security with eBPF-based Falco rules and Suricata network intrusion detection",
     ],
-    tags: ["Cybersecurity", "PFE"],
+    tags: ["K3s", "Wazuh", "Tailscale", "Sigstore", "Falco", "eBPF", "Suricata", "Helm"],
     current: true,
   },
   {
@@ -114,6 +117,14 @@ export const experiences = [
 ];
 
 export const projects = [
+  {
+    icon: "[$]",
+    year: "2026",
+    title: "Cloud-Native SOC on Kubernetes",
+    desc: "Full Security Operations Center built on K3s with Wazuh SIEM, Falco runtime security (eBPF), Suricata IDS, and Sigstore image signing — all behind a Tailscale Zero-Trust mesh VPN.",
+    tags: ["K3s", "Wazuh", "Falco", "eBPF", "Suricata", "Sigstore", "Tailscale"],
+    current: true,
+  },
   {
     icon: "[!]",
     year: "2025",
